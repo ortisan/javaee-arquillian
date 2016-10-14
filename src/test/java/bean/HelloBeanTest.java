@@ -20,7 +20,6 @@ public class HelloBeanTest {
     public static JavaArchive createDeployment() {
         JavaArchive javaArchive = ShrinkWrap.create(JavaArchive.class, "test.jar");
         javaArchive
-                .addClass(IHelloRemote.class)
                 .addClass(HelloBean.class)
                 .addAsManifestResource(org.jboss.shrinkwrap.api.asset.EmptyAsset.INSTANCE, "beans.xml");
 
@@ -28,7 +27,7 @@ public class HelloBeanTest {
     }
 
     @Test
-    public void should_say_hello() {
+    public void shouldSayHello() {
         Assert.assertEquals("Hello Marcelo", helloBean.sayHello("Marcelo"));
     }
 

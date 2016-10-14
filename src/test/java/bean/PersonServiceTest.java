@@ -23,14 +23,6 @@ public class PersonServiceTest {
     @EJB
     PersonService personService;
 
-
-    /*<dependency>
-            <groupId>postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <version>9.1-901-1.jdbc4</version>
-        </dependency>*/
-
-
     @Deployment
     public static WebArchive createDeployment() {
         File[] files = Maven.resolver().loadPomFromFile("pom.xml")
@@ -42,13 +34,13 @@ public class PersonServiceTest {
                 .addClass(PersonService.class)
                 .addAsLibraries(files)
                 .addAsResource("test-persistence.xml", "META-INF/persistence.xml")
-                .addAsResource("jboss-deployment-structure-xml")
+//                .addAsResource("jboss-deployment-structure-xml")
                 .addAsManifestResource(org.jboss.shrinkwrap.api.asset.EmptyAsset.INSTANCE, "beans.xml");
         return javaArchive;
     }
 
     @Test
-    public void create() {
+    public void shouldPersist() {
         Person person = new Person();
         person.setName("Marcelo");
         personService.create(person);
