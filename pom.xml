@@ -46,11 +46,6 @@
 
 
     <dependencies>
-        <dependency>
-            <groupId>ortiz</groupId>
-            <artifactId>remote-interfaces</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
 
         <dependency>
             <groupId>javax</groupId>
