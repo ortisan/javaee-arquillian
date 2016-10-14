@@ -28,6 +28,11 @@ public class PersonServiceTest {
         File[] files = Maven.resolver().loadPomFromFile("pom.xml")
                 .importRuntimeDependencies().resolve().withTransitivity().asFile();
 
+
+        for (File file : files) {
+            System.out.println("file = " + file);
+        }
+
         WebArchive javaArchive = ShrinkWrap.create(WebArchive.class, "test.war");
         javaArchive
                 .addClass(Person.class)
